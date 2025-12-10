@@ -1,15 +1,11 @@
 import psycopg2
+from psycopg2.extras import RealDictCursor
 from config import POSTGRES_CONFIG
 
 def create_tables():
-    conn = psycopg2.connect(
-        dbname=POSTGRES_CONFIG["dbname"],
-        user=POSTGRES_CONFIG["user"],
-        password=POSTGRES_CONFIG["password"],
-        host=POSTGRES_CONFIG["host"],
-        port=POSTGRES_CONFIG["port"],
-    )
-    cur = conn.cursor()
+    # Connect using DSN string from Render
+    conn = psycopg2.connect(POSTGRES_CONFIG)
+    cur = conn.cursor(cursor_factory=RealDictCursor)
 
     # USERS table
     cur.execute("""

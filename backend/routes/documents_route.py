@@ -80,34 +80,51 @@ def upload_document():
 
 
 # ---------------- LIST DOCUMENTS (User Specific) ----------------
-@documents_bp.route("/", methods=["GET", "OPTIONS"])
+@documents_bp.route("/", methods=["GET"])
 def list_documents():
-    if request.method == "OPTIONS":
-        return jsonify({"ok": True}), 200   # allow preflight
-
     user = require_auth(request)
     if not user:
         return jsonify({"error": "Unauthorized"}), 401
 
-
     user_id = user["user_id"]
+
+    search = request.args.get("search", "").strip()        # e.g. ?search=report
+    sort = request.args.get("sort", "newest").strip()      # e.g. ?sort=oldest
+
+    # Build base query
+    query = """
+        SELECT id, filename, filesize, created_at
+        FROM documents
+        WHERE user_id = %s
+    """
+    params = [user_id]
+
+    # Apply search filter
+    if search:
+        query += " AND LOWER(filename) LIKE LOWER(%s)"
+        params.append(f"%{search}%")
+
+    # Apply sorting
+    if sort == "oldest":
+        query += " ORDER BY created_at ASC"
+    elif sort == "size_asc":
+        query += " ORDER BY filesize ASC"
+    elif sort == "size_desc":
+        query += " ORDER BY filesize DESC"
+    else:  # default newest
+        query += " ORDER BY created_at DESC"
 
     conn = get_db_conn()
     cur = conn.cursor()
 
-    cur.execute("""
-        SELECT id, filename, filesize, created_at
-        FROM documents
-        WHERE user_id = %s
-        ORDER BY created_at DESC
-    """, (user_id,))
-
+    cur.execute(query, tuple(params))
     docs = cur.fetchall()
 
     cur.close()
     conn.close()
 
     return jsonify(docs)
+
 
 
 # ---------------- DOWNLOAD ----------------

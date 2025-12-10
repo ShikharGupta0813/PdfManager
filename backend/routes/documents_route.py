@@ -4,7 +4,6 @@ import os
 import jwt
 import psycopg2
 from flask_bcrypt import Bcrypt
-
 from config import SECRET_KEY, POSTGRES_CONFIG
 from database.db import get_db_conn
 from services.file_service import allowed_file, save_uploaded_file

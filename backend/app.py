@@ -34,5 +34,5 @@ def home():
     return "Backend Running"
 
 if __name__ == "__main__":
-    create_tables()     # <-- FIX
+    create_tables()
     app.run(port=5000, debug=True)

@@ -86,15 +86,11 @@ Create a `.env` file in the `backend/` folder:
 ```env
 SECRET_KEY=your_super_secret_key_here
 DATABASE_URL=postgresql://username:password@localhost:5432/pdf_db
-UPLOAD_FOLDER=uploads
 ```
 
 **Run the Server:**
 
 ```bash
-# Initialize database tables (first time only)
-python create_tables.py
-
 # Start the server
 python app.py
 ```

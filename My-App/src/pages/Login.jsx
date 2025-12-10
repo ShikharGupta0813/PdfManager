@@ -101,11 +101,11 @@ export default function Login() {
             className="custom-input"
           />
           
-          <div className="forgot-link">
+          {/* <div className="forgot-link">
             <button type="button" className="forgot-btn">
               Forgot Password?
             </button>
-          </div>
+          </div> */}
 
           <button
             type="submit"

@@ -219,10 +219,10 @@ export default function Main() {
 
               <select
                 value={sort}
-                onChange={(e) => {
-                  setSort(e.target.value);
-                  fetchHistory();
-                }}
+                // onChange={(e) => {
+                //   setSort(e.target.value);
+                //   fetchHistory();
+                // }}
                 style={{
                   padding: "15px",
                   paddingRight: "35px",

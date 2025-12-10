@@ -8,8 +8,8 @@
 A robust full-stack web application designed to securely manage PDF documents. Users can upload, view, search, sort, and download files within a protected environment.
 
 ## 🔗 Live Demo & Links
-- **🚀 Live Demo:** [https://pdf-manager-live-demo.com](https://pdf-manager-live-demo.com)
-- **📂 GitHub Repository:** [https://github.com/your-username/pdf-manager](https://github.com/your-username/pdf-manager)
+- **🚀 Live Demo:** [https://frontendpdfmanager.onrender.com/](https://frontendpdfmanager.onrender.com/)
+- **📂 GitHub Repository:** [https://github.com/ShikharGupta0813/PdfManager](https://github.com/ShikharGupta0813/PdfManager)
 
 ---
 
@@ -163,7 +163,7 @@ curl -X POST http://localhost:5000/documents/upload \
 /backend
  ├── app.py                # Entry point
  ├── config.py             # App configuration
- ├── models.py             # Database Models
+ ├── create_db.py             # Database Model
  ├── routes/               # API Endpoints
  ├── services/             # Business Logic
  ├── uploads/              # Local file storage
@@ -172,7 +172,6 @@ curl -X POST http://localhost:5000/documents/upload \
 /My-App (Frontend)
  ├── src/
  │   ├── api/              # Axios instances
- │   ├── components/       # Reusable UI components
  │   ├── pages/            # Login, Dashboard, etc.
  │   └── App.jsx           # Main component
  ├── package.json          # Node dependencies

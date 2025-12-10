@@ -15,4 +15,5 @@ ALLOWED_EXTENSIONS = {"pdf"}
 MAX_CONTENT_LENGTH = 10 * 1024 * 1024
 
 # JWT Secret Key
-SECRET_KEY = os.environ.get("SECRET_KEY", "supersecretjwtkey")
+SECRET_KEY = os.environ["SECRET_KEY"]
+

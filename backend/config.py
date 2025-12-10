@@ -6,13 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent
 UPLOAD_FOLDER = BASE_DIR / "uploads"
 
 # PostgreSQL Database Configuration (LOCAL DEFAULTS)
-POSTGRES_CONFIG = {
-    "dbname": os.environ.get("PG_NAME", "postgres"),      # your local database name
-    "user": os.environ.get("PG_USER", "postgres"),        # default PostgreSQL user
-    "password": os.environ.get("PG_PASSWORD", "2004"),# default password (change if needed)
-    "host": os.environ.get("PG_HOST", "localhost"),       # localhost for local DB
-    "port": os.environ.get("PG_PORT", "5432")             # default PostgreSQL port
-}
+POSTGRES_CONFIG = os.environ.get("DATABASE_URL")
 
 # Allowed file types
 ALLOWED_EXTENSIONS = {"pdf"}

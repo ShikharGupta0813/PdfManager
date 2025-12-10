@@ -68,7 +68,6 @@ export default function Signup() {
 
   return (
     <div className="signup-page">
-      {/* Internal CSS Styles - Matches Login Page exactly */}
 
       {/* --- Background Animations --- */}
       <div className="blob blob-1" />

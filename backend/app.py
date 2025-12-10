@@ -14,7 +14,7 @@ UPLOAD_FOLDER.mkdir(exist_ok=True)
 
 # Apply CORS first
 CORS(app,
-     resources={r"/*": {"origins": "http://localhost:5173"}},
+     resources={r"/*": {"origins": "https://frontendpdfmanager.onrender.com"}},
      supports_credentials=True,
      allow_headers=["Content-Type", "Authorization"],
      expose_headers=["Content-Type", "Authorization"]

@@ -150,11 +150,6 @@ export default function Main() {
 
   return (
     <div className="home-page">
-      {/* --- Internal CSS Styles --- */}
-      <style>{`
-        /
-
-      `}</style>
 
       {/* --- Background --- */}
       <div className="blob blob-1" />
